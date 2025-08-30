@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>帅哥匹配度检测</title>
+  <style>
+    body {
+      font-family: "微软雅黑", Arial;
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 30px;
+      background: #f8f0f9;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #e91e63;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .input-group {
+      margin: 15px 0;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #555;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      width: 100%;
+      padding: 15px;
+      margin-top: 20px;
+      background: #e91e63;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover {
+      background: #c2185b;
+    }
+    #result {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 8px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>帅哥匹配度终极检测</h1>
+  
+  <div class="input-group">
+    <label for="age">你的年龄</label>
+    <input type="number" id="age" min="18" max="100" placeholder="请输入年龄">
+  </div>
+  
+  <div class="input-group">
+    <label for="星座">你的星座</label>
+    <select id="星座">
+      <option value="">请选择</option>
+      <option value="白羊">白羊座</option>
+      <option value="金牛">金牛座</option>
+      <option value="双子">双子座</option>
+      <option value="巨蟹">巨蟹座</option>
+      <option value="狮子">狮子座</option>
+      <option value="处女">处女座</option>
+      <option value="天秤">天秤座</option>
+      <option value="天蝎">天蝎座</option>
+      <option value="射手">射手座</option>
+      <option value="摩羯">摩羯座</option>
+      <option value="水瓶">水瓶座</option>
+      <option value="双鱼">双鱼座</option>
+    </select>
+  </div>
+  
+  <div class="input-group">
+    <label for="理想型">理想帅哥类型</label>
+    <select id="理想型">
+      <option value="">请选择</option>
+      <option value="阳光">阳光运动型</option>
+      <option value="高冷">高冷禁欲型</option>
+      <option value="奶狗">奶狗温柔型</option>
+      <option value="霸总">霸总多金型</option>
+    </select>
+  </div>
+  
+  <button onclick="checkResult()">开始检测</button>
+  <div id="result"></div>
+
+  <script>
+    function checkResult() {
+      const age = document.getElementById('age').value;
+      const 星座 = document.getElementById('星座').value;
+      const 理想型 = document.getElementById('理想型').value;
+      
+      // 先假装校验
+      if (!age || !星座 || !理想型) {
+        alert("请填写完整信息哦~");
+        return;
+      }
+      
+      // 显示加载中，增加期待感
+      const result = document.getElementById('result');
+      result.style.display = 'block';
+      result.innerHTML = '<p style="text-align:center; color:#666;">正在分析你的匹配数据...</p>';
+      
+      // 延迟一秒，给个暴击
+      setTimeout(() => {
+        result.style.background = '#ffebee';
+        result.innerHTML = `
+          <p style="color:#c62828; font-size:20px; text-align:center;">检测结果：</p>
+          <p style="font-size:24px; text-align:center; font-weight:bold; color:#b71c1c;">
+            你永久找不着好看的帅哥<br>
+            你永远找不到帅哥！
+          </p>
+          <p style="text-align:center; color:#666; margin-top:20px;">
+            （别问为什么，系统就是这么判定的😜）
+          </p>
+        `;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
